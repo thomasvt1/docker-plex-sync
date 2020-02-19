@@ -9,7 +9,7 @@ ENV PLEX_TOKEN="" \
     SECTION_MAPS="" \
     CRON_SCHEDULE="0 * * * *" \
     INITIAL_RUN="" \
-    PACKAGE_DEPS="cron rsyslog" \
+    PACKAGE_DEPS="rsyslog" \
     NPM_PACKAGE_VERSION="0.6.1"
 
 ADD root/ /
