@@ -8,4 +8,4 @@ echo 'Installing cron job' && crontab -l 2>/dev/null; echo "$CRON_SCHEDULE . /ro
 
 touch /var/log/cron.log
 
-rsyslogd && crontab && tail -F /var/log/syslog /var/log/cron.log 2>/dev/null 
+rsyslogd && tail -F /var/log/syslog /var/log/cron.log 2>/dev/null 
