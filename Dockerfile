@@ -15,14 +15,10 @@ ENV PLEX_TOKEN="" \
 ADD root/ /
 
 RUN  set -x \
-  && apt-get update -qq \
-  && apt-get install -qq --no-install-recommends -y ${PACKAGE_DEPS} \
+  && apk add ${PACKAGE_DEPS} \
   && npm install -g --quiet plex-sync@${NPM_PACKAGE_VERSION} \
   && chmod 0755 /usr/local/bin/plex-sync-job \
   && chmod 0755 /usr/local/bin/plex-sync-entrypoint \
-  && touch /var/log/cron.log \
-  && apt-get -qq -y autoremove \
-  && apt-get -qq -y clean autoclean \
-  && rm -rf /var/lib/{apt,dpkg,cache,log}
+  && touch /var/log/cron.log
 
 ENTRYPOINT ["/usr/local/bin/plex-sync-entrypoint"]
